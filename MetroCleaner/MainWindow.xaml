@@ -1,0 +1,119 @@
+﻿<Window x:Class="MetroCleaner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MetroCleaner"
+        mc:Ignorable="d"
+        Title="Metro System Cleaner v1.0" Height="400" Width="625" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Icons/compassIcon.ico">
+
+    <Window.Resources>
+        <FontFamily x:Key="cusFont">Fonts/Sansation_Regular.ttf#Sansation Regular</FontFamily>
+        <Storyboard x:Key="fadeOut">
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
+                             From="0"
+                             To="-80"
+                             Duration="0:0:0:1">
+
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                             From="1"
+                             To="0"
+                             Duration="0:0:0:0.6">
+
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Key="fadeIn">
+            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)" 
+                             From="80"
+                             To="0"
+                             Duration="0:0:0:1">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"></CubicEase>
+                </DoubleAnimation.EasingFunction>
+
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="0"
+                             To="1"
+                             Duration="0:0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"></CubicEase>
+                </DoubleAnimation.EasingFunction>
+
+            </DoubleAnimation>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased">
+
+        <!--Header of the main window-->
+        <Rectangle x:Name="rectHeaderBG" Fill="#FF1F1F1F" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="619" d:IsLocked="True"/>
+        <TextBlock x:Name="txtAppTitle" Margin="63.18,0,0,0" FontFamily="{StaticResource cusFont}" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="18.667" HorizontalAlignment="Left" Width="226.323" Padding="4,10,0,0" d:LayoutOverrides="HorizontalAlignment" Foreground="LightGray" d:IsLocked="True"><Run Text="Metro Sys"/><Run Text="Cleaner"/></TextBlock>
+        <Image x:Name="imgLogo" Source="Images/Logo.png" Margin="14,7,0,0" HorizontalAlignment="Left" Width="41.18" Height="29.5" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" d:IsLocked="True"/>
+
+        <!--System Info Section-->
+        <TextBlock x:Name="lblSysDetails" HorizontalAlignment="Left" Height="25" Margin="10,45,0,0" TextWrapping="Wrap" Text="System Info:" VerticalAlignment="Top" Width="106" FontSize="16" FontFamily="{StaticResource cusFont}" FontWeight="Bold" Padding="0,4,0,0" d:IsLocked="True"/>
+        <TextBlock x:Name="txtSysDetails" Margin="16,70,0,0" TextWrapping="Wrap" FontSize="13.333" HorizontalAlignment="Left" Width="246" FontFamily="{StaticResource cusFont}" Height="112" VerticalAlignment="Top" d:IsLocked="True"><Run Text="Current User:"/><LineBreak/><Run Text="Machine Name:"/><LineBreak/><Run Text="User Profile:"/><LineBreak/><Run Text="System Folder:"/><LineBreak/><Run Text="Processor Count:"/></TextBlock>
+
+        <!--On Going Task Details-->
+        <TextBlock x:Name="lblTaskDetails" HorizontalAlignment="Left" Height="25" Margin="10,191,0,0" TextWrapping="Wrap" Text="Task Details:" VerticalAlignment="Top" Width="106" FontSize="16" FontWeight="Bold" Padding="0,4,0,0" FontFamily="{StaticResource cusFont}" d:IsLocked="True"/>
+        <TextBlock x:Name="txtTaskDetails" Margin="16,217,0,0" FontSize="13.333" HorizontalAlignment="Left" Width="246" Foreground="#FF0056D3" FontFamily="{StaticResource cusFont}" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap" Height="119" VerticalAlignment="Top" Text="Click on the CLEAN NOW button to start the process..."/>
+
+        <!--Startup Glass Image-->
+        <Image x:Name="imgGlass" Source="Images/glass.png" Margin="354,70,0,0" HorizontalAlignment="Left" Width="170" Height="170" VerticalAlignment="Top" d:IsLocked="True">
+            <Image.RenderTransform>
+                <TranslateTransform X="0" Y="0"></TranslateTransform>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock x:Name="txtGlass" Margin="354,240,0,0" TextWrapping="Wrap" Text="Metro SysCleaner" FontSize="21.333" FontFamily="{StaticResource cusFont}" FontWeight="Bold" Padding="2,4,0,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="179" Foreground="#FF0070F5" d:IsLocked="True"/>
+
+        <!--Operation Successfull Logo and Text-->
+        <Image x:Name="imgPass" Visibility="Hidden" Source="Images/checked.png" Margin="354,70,0,0" HorizontalAlignment="Left" Width="170" Height="170" VerticalAlignment="Top" d:IsLocked="True">
+            <Image.RenderTransform>
+                <TranslateTransform X="0" Y="0"></TranslateTransform>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock x:Name="txtPass" Visibility="Hidden" Margin="335,245,0,0" TextWrapping="Wrap" Text="Done!  System Cleaned." FontSize="18.667" FontFamily="{StaticResource cusFont}" FontWeight="Bold" Padding="5,4,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="210" Foreground="#FF1E8500" d:IsLocked="True"/>
+
+        <!--Operation Failed Logo and Text-->
+        <Image x:Name="imgFail" Visibility="Hidden" Source="Images/cancel.png" Margin="354,70,0,0" HorizontalAlignment="Left" Width="170" Height="170" VerticalAlignment="Top" d:IsLocked="True">
+            <Image.RenderTransform>
+                <TranslateTransform X="0" Y="0"></TranslateTransform>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock x:Name="txtFail" Visibility="Hidden" Margin="335,245,0,0" TextWrapping="Wrap" Text="Failed! Please try again..." FontSize="18.667" FontFamily="{StaticResource cusFont}" FontWeight="Bold" Padding="5,4,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="224" Foreground="#FFA20000" d:IsLocked="True"/>
+
+        <!--Loader Logo and Text-->
+        <Image x:Name="imgLoading" Visibility="Hidden" Source="Images/loading.png" RenderTransformOrigin=".5,.5" Margin="404,121,0,0" HorizontalAlignment="Left" Width="57" Height="57" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" d:IsLocked="True">
+            <Image.RenderTransform>
+                <RotateTransform x:Name="rotation" Angle="0"></RotateTransform>
+            </Image.RenderTransform>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(Image.RenderTransform).(RotateTransform.Angle)"
+                                             To="360"
+                                             Duration="0:0:0:3"
+                                             RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+        <TextBlock x:Name="txtLoading" Visibility="Hidden" Margin="386,183,0,0" TextWrapping="Wrap" Text="Processing..." FontSize="16" FontFamily="{StaticResource cusFont}" FontWeight="Bold" Padding="5,4,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Foreground="#FF0BB20B" d:IsLocked="True"/>
+
+        <!--Footer of the main window-->
+        <Rectangle x:Name="rectFooterBG" Fill="#FF1F1F1F" Margin="0,341,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="619" d:IsLocked="True"/>
+        <TextBlock x:Name="txtFooter" Margin="0,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" HorizontalAlignment="Left" Width="340.323" Padding="4,3,0,0" Foreground="#FF919191" FontFamily="{StaticResource cusFont}" Text="Developed by Raheel Anwar. © 2017 All Rights Reserved." d:IsLocked="True"/>
+
+        <!--Line Partitions-->
+        <Rectangle x:Name="linePartition" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="267,60,0,0" Stroke="#FFBDBDBD" Width="1" Height="260" VerticalAlignment="Top" d:LayoutOverrides="Height" d:IsLocked="True"/>
+        <Rectangle x:Name="linePartition2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="16,187,0,0" Stroke="#FFBDBDBD" Width="230" Height="1" VerticalAlignment="Top" d:IsLocked="True"/>
+        
+        <!--Start Cleaning Button-->
+        <Button x:Name="btnClean" Style="{StaticResource flatButton}" Content="CLEAN NOW!" HorizontalAlignment="Left" Height="40" Margin="335,280,0,0" VerticalAlignment="Top" Width="210" FontSize="21.333" FontFamily="{StaticResource cusFont}" FontWeight="Bold" Click="btnClean_Click" Foreground="White" Cursor="Arrow"/>
+
+    </Grid>
+</Window>
