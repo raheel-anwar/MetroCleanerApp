@@ -1,9 +1,9 @@
 # Metro Cleaner v1.0
-<h3>
+<p>
 A system cleaning application for windows<br>
 Clean and beautiful UI<br>
 Clean temp files for now<br>
-</h3>
+</p>
 
 <h2>Note</h2>
 => A side project I have been working on to test new programming techniques <br>
