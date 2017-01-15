@@ -1,8 +1,8 @@
 # Metro Cleaner v1.0
 <h3>
-=> A system cleaning application for windows<br>
-=> Clean and beautiful UI<br>
-=> Clean temp files for now<br>
+A system cleaning application for windows<br>
+Clean and beautiful UI<br>
+Clean temp files for now<br>
 </h3>
 
 <h2>Note</h2>
