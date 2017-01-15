@@ -5,11 +5,11 @@
 => Clean temp files for now<br>
 </h3>
 
-#Note:
+<h2>Note:</h2>
 => A side project I have been working on to test new programming techniques <br>
 => Next build will be more modular and documented :)<br>
 
-#System Requirements:
+<h2>#System Requirements:</h2>
 => Windows 8/8.1/10<br>
 => .Net Framework 4.0 or later<br>
 
