@@ -86,7 +86,9 @@ namespace MetroCleaner
                 txtTaskDetails.Text += "Start Cleaning...\n";
 
                 String tempPath = System.IO.Path.GetTempPath();
-                UtilityClass.deleteAll(tempPath);
+                await Task.Run(() => {
+                    UtilityClass.deleteAll(tempPath);
+                });
 
                 txtTaskDetails.Text += "Cleaning successful...";
 
