@@ -12,4 +12,4 @@ Clean temp files for now<br>
 <h2>System Requirements</h2>
 => Windows 8/8.1/10<br>
 => .Net Framework 4.0 or later<br>
-
+=> Visual Studio 2013 or higher
